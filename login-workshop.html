@@ -68,7 +68,7 @@
       <paper-input label="emailLabel" value="{{emailValue}}"><iron-icon icon="mail" slot="prefix"></iron-icon></paper-input>
       <paper-input  label="passwordLabel" value="{{passwordValue}}"><iron-icon icon="lock-outline" slot="prefix"></iron-icon></paper-input>
       <paper-checkbox>Remember me</paper-checkbox>
-      <paper-button>{{buttonValue}}</paper-button>
+      <paper-button on-click="sendLogin">{{buttonValue}}</paper-button>
       <slot></slot>
     </paper-card>
 
@@ -118,7 +118,18 @@
                     }
                 }
             };
+
+            sendLogin() {
+                let email = this.emailValue;
+                let password = this.passwordValue;
+
+                (email !== '' && password !== '') ?
+                console.log(`entraste con ${email}`):
+                    console.log('tienes que hacer login');
+            }
         }
+
+
 
         window.customElements.define(LoginWorkshop.is, LoginWorkshop);
     </script>
