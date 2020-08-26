@@ -1,0 +1,124 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="login-workshop">
+    <template>
+    <style>
+      :host {
+        display: block;
+        align-content: center;
+        @apply --login-workshop;
+      }
+
+      paper-card {
+        --paper-card: {
+            width: 100%;
+            border: 3px solid #ff69b4;
+            padding: 5rem;
+            font-font-size: 40px;
+        }
+        @apply --login-workshop-paper-card;
+      }
+
+      paper-card .header .title-text .tile{
+          text-align: center;
+      }
+
+      paper-input {
+        background: #dcdcdc;
+        margin-top: 1rem;
+      }
+
+      paper-checkbox {
+        --paper-checkbox: {
+            margin-top: 1rem;
+        }
+        --paper-checkbox-checked-color: transparent;
+        --paper-checkbox-checkmark-color: #ff69b4;
+        @apply --login-workshop-paper-checkbox;
+      }
+      
+      paper-button {
+        --paper-button: {
+            display: flex;
+            text-decoration: none;
+            margin-top: 3rem;
+            font-weight: 600;
+            font-size: 20px;
+            color: #fff;
+            background: hotpink;
+            border-radius: 3px;
+        }
+        @apply --login-workshop-paper-button;
+      }
+
+
+      
+      
+
+    </style>
+
+    <paper-card class="title" heading="[[title]]" animated="false">
+      <paper-input label="emailLabel" value="{{emailValue}}"><iron-icon icon="mail" slot="prefix"></iron-icon></paper-input>
+      <paper-input  label="passwordLabel" value="{{passwordValue}}"><iron-icon icon="lock-outline" slot="prefix"></iron-icon></paper-input>
+      <paper-checkbox>Remember me</paper-checkbox>
+      <paper-button>{{buttonValue}}</paper-button>
+      <slot></slot>
+    </paper-card>
+
+
+  </template>
+
+    <script>
+        /**
+         * `login-workshop`
+         * componente de login
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class LoginWorkshop extends Polymer.Element {
+            static get is() {
+                return 'login-workshop';
+            }
+            static get properties() {
+                return {
+                    title: {
+                        type: String,
+                        value: 'LOGIN'
+                    },
+                    emailLabel: {
+                        type: String,
+                        value: 'Label'
+                    },
+                    emailValue: {
+                        type: String,
+                        value: '',
+                        notify: true
+                    },
+                    passwordLabel: {
+                        type: String,
+                        value: 'Label'
+                    },
+                    passwordValue: {
+                        type: String,
+                        value: '',
+                        notify: true
+                    },
+                    buttonValue: {
+                        type: String,
+                        value: 'LOGIN',
+                    }
+                }
+            };
+        }
+
+        window.customElements.define(LoginWorkshop.is, LoginWorkshop);
+    </script>
+</dom-module>

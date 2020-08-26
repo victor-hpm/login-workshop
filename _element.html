@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="login-workshop">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `login-workshop`
+     * componente de login
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LoginWorkshop extends Polymer.Element {
+      static get is() { return 'login-workshop'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'login-workshop'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(LoginWorkshop.is, LoginWorkshop);
+  </script>
+</dom-module>
